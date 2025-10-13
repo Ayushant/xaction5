@@ -26,17 +26,17 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
     setTimeout(() => setShowCelebration(false), 3000);
   }, []);
   
-  if (!data) {
+    if (!data) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{
-        background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)'
+        background: 'linear-gradient(135deg, #581c87 0%, #7c3aed 50%, #a855f7 100%)'
       }}>
-        <div className="premium-card text-center">
-          <p className="text-white/80 text-xl">No results available.</p>
+        <div className="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-gray-200">
+          <p className="text-gray-700 text-xl">No results available.</p>
           {onBack && (
             <button
               onClick={onBack}
-              className="mt-6 btn-gaming px-8 py-3"
+              className="mt-6 px-8 py-3 text-gray-800 hover:text-black font-semibold"
             >
               ← Back to Mission Select
             </button>
@@ -91,13 +91,12 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
 
   return (
     <div className="min-h-screen relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)'
+      background: 'linear-gradient(135deg, #581c87 0%, #7c3aed 50%, #a855f7 100%)'
     }}>
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-400/20 rounded-full blur-3xl"></div>
       </div>
 
       {/* Celebration Particles */}
@@ -120,42 +119,37 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
         </div>
       )}
 
-      {/* Scan Line */}
-      <div className="scan-line"></div>
 
       <div className="relative z-10 py-12 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Trophy Header */}
-          <div className="text-center mb-12 animate-scaleUp">
-            <div className="relative w-40 h-40 mx-auto mb-8">
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-2xl animate-pulse">
-                <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              </div>
-              <div className="absolute -inset-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full blur-2xl opacity-50"></div>
+          <div className="text-center mb-12">
+            <div className="w-40 h-40 mx-auto mb-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-2xl">
+              <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
             </div>
             
-            <h1 className="text-6xl font-black text-white mb-4 tracking-wider">
+            <h1 className="text-6xl font-black text-gray-800 mb-4 tracking-wider">
               MISSION ACCOMPLISHED!
             </h1>
-            <p className="text-2xl text-white/80">
+            <p className="text-2xl text-gray-600">
               Strategic Simulation Complete
             </p>
           </div>
 
           {/* Score Display */}
-          <div className="premium-card text-center mb-12 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-            <div className="score-display mb-6">
+          <div className="bg-white rounded-xl shadow-lg p-8 text-center mb-12 border-2 border-gray-200">
+            <div className="text-7xl font-black text-transparent bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text mb-6">
               {percentage.toFixed(1)}%
             </div>
             
-            <div className="text-2xl text-white/70 mb-8">
-              Final Score: <span className="text-white font-bold">{totalScore.toFixed(1)}</span>
+            <div className="text-2xl text-gray-600 mb-8">
+              Final Score: <span className="text-gray-800 font-bold">{totalScore.toFixed(1)}</span>
             </div>
             
             {/* Performance Badge */}
-            <div className={`inline-flex items-center gap-6 px-12 py-6 rounded-2xl ${performance.bg} ${performance.color} font-black text-2xl border-2 border-current/50 neon-glow`}>
+            <div className={`inline-flex items-center gap-6 px-12 py-6 rounded-2xl ${performance.bg} ${performance.color} font-black text-2xl border-2 border-current shadow-lg`}>
               <span className="text-5xl">{performance.icon}</span>
               <div className="text-left">
                 <div className="text-4xl mb-1">{performance.level}</div>
@@ -170,46 +164,46 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
           {/* Statistics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* Your Score */}
-            <div className="stat-card animate-scaleUp" style={{ animationDelay: '0.4s' }}>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500/30 to-purple-600/30 mb-4 inline-block neon-glow">
-                <svg className="w-10 h-10 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 mb-4 inline-block">
+                <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
               </div>
-              <div className="text-5xl font-black text-transparent bg-gradient-to-br from-blue-400 to-purple-600 bg-clip-text mb-3">
+              <div className="text-5xl font-black text-transparent bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text mb-3">
                 {totalScore.toFixed(1)}
               </div>
-              <div className="text-blue-400 font-bold text-xl mb-2">Your Score</div>
-              <div className="text-white/60">{percentage.toFixed(1)}% ranking accuracy</div>
+              <div className="text-blue-600 font-bold text-xl mb-2">Your Score</div>
+              <div className="text-gray-600">{percentage.toFixed(1)}% ranking accuracy</div>
             </div>
 
             {/* Missions Completed */}
-            <div className="stat-card animate-scaleUp" style={{ animationDelay: '0.5s' }}>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/30 to-pink-600/30 mb-4 inline-block neon-glow">
-                <svg className="w-10 h-10 text-purple-300" fill="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-100 to-pink-100 mb-4 inline-block">
+                <svg className="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
                   <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd"/>
                 </svg>
               </div>
-              <div className="text-5xl font-black text-transparent bg-gradient-to-br from-purple-400 to-pink-600 bg-clip-text mb-3">
+              <div className="text-5xl font-black text-transparent bg-gradient-to-br from-purple-600 to-pink-600 bg-clip-text mb-3">
                 {answers.length}
               </div>
-              <div className="text-purple-400 font-bold text-xl mb-2">Missions Completed</div>
-              <div className="text-white/60">Strategic decisions executed</div>
+              <div className="text-purple-600 font-bold text-xl mb-2">Missions Completed</div>
+              <div className="text-gray-600">Strategic decisions executed</div>
             </div>
 
             {/* Strategic Excellence */}
-            <div className="stat-card animate-scaleUp" style={{ animationDelay: '0.6s' }}>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-green-500/30 to-cyan-600/30 mb-4 inline-block neon-glow">
-                <svg className="w-10 h-10 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-green-100 to-blue-100 mb-4 inline-block">
+                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <div className="text-5xl font-black text-transparent bg-gradient-to-br from-green-400 to-cyan-600 bg-clip-text mb-3">
+              <div className="text-5xl font-black text-transparent bg-gradient-to-br from-green-600 to-blue-600 bg-clip-text mb-3">
                 {answers.filter(a => a.instruction).length}
               </div>
-              <div className="text-green-400 font-bold text-xl mb-2">Instructions Given</div>
-              <div className="text-white/60">Detailed strategic reasoning</div>
+              <div className="text-green-600 font-bold text-xl mb-2">Instructions Given</div>
+              <div className="text-gray-600">Detailed strategic reasoning</div>
             </div>
           </div>
 
@@ -354,10 +348,10 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fadeIn" style={{ animationDelay: '0.9s' }}>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button
               onClick={onBack || onReturnToDashboard}
-              className="btn-gaming px-12 py-5 text-xl group"
+              className="px-12 py-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
             >
               <span className="flex items-center justify-center">
                 <svg className="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -380,7 +374,7 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
           </div>
 
           {/* Completion Details */}
-          <div className="mt-12 text-center text-white/50 text-sm animate-fadeIn" style={{ animationDelay: '1s' }}>
+          <div className="mt-12 text-center text-gray-500 text-sm">
             <p>Mission completed on {new Date(completedAt).toLocaleString()}</p>
             <p className="mt-2">All data has been securely transmitted to command</p>
           </div>

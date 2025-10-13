@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // External image URLs from Google Drive
@@ -139,14 +140,16 @@ const WobbleCard = ({ children, containerClassName, className }) => {
 
 // Main About Component
 const About = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
       {/* Header */}
-      <div className="text-center py-12 px-6">
+      <div className="text-center py-8 sm:py-10 lg:py-12 px-3 sm:px-6">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3 sm:mb-4"
         >
           About Us
         </motion.h1>
@@ -154,7 +157,7 @@ const About = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-2xl md:text-3xl font-semibold text-blue-900 mb-6"
+          className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 mb-4 sm:mb-6"
         >
           Transforming Business Education
         </motion.h2>
@@ -162,66 +165,53 @@ const About = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-gray-600 max-w-3xl mx-auto text-lg"
+          className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg px-2"
         >
           Our simulation platform is a cutting-edge educational tool designed to bridge the gap between theoretical knowledge and practical business management experience.
         </motion.p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pb-12 space-y-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 pb-8 sm:pb-10 lg:pb-12 space-y-10 sm:space-y-12 lg:space-y-16">
         {/* About Xaction Section */}
         <WobbleCard containerClassName="bg-gradient-to-br from-blue-600 to-indigo-700">
-          <div className="max-w-4xl">
-            <h2 className="text-3xl font-bold text-white mb-4">About Xaction</h2>
-            <p className="text-blue-100 text-lg mb-4 leading-relaxed">
-              Xaction is a business vertical of Ground Up Consulting which focuses on building simulations as close to real life as possible for management students. Xaction simulations are not operating at 30,000 ft from the ground level but mimic the real challenges that any management graduate is likely to face in their first 5 years of their career.
-            </p>
-            <p className="text-blue-100 text-lg leading-relaxed">
-              The simulations will test your decision making capability in face of the challenges and the constraints. This becomes critical because decisions in real life are always taken with constraints because the resources are minimal.
-            </p>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 text-center">About Xaction</h2>
+            <div className="space-y-3 sm:space-y-4 lg:space-y-5">
+              <p className="text-blue-100 text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+                Xaction is a business vertical of <span className="font-semibold text-white">Ground Up Consulting</span> which focuses on building simulations as close to real life as possible for management students. Xaction simulations are not operating at 30,000 ft from the ground level but mimic the real challenges that any management graduate is likely to face in their first 5 years of their career.
+              </p>
+              <p className="text-blue-100 text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+                The simulations will test your decision making capability in face of the challenges and the constraints. This becomes critical because decisions in real life are always taken with constraints because the resources are minimal.
+              </p>
+            </div>
           </div>
         </WobbleCard>
 
         {/* Mission & Vision */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <WobbleCard containerClassName="bg-gradient-to-br from-blue-500 to-blue-600 min-h-[280px]">
-            <div className="flex items-start space-x-4">
-              <div className="bg-white/20 p-4 rounded-xl backdrop-blur-sm">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-3">Our Mission</h3>
-                <p className="text-blue-100 leading-relaxed">
-                  To empower next generation of business leaders by providing cutting-edge experiential education that enhances critical thinking, decision-making, and leadership skills in a highly realistic business environment.
-                </p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <WobbleCard containerClassName="bg-gradient-to-br from-blue-500 to-blue-600">
+            <div className="text-center">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">Our Mission</h3>
+              <p className="text-blue-100 text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+                To empower next generation of business leaders by providing cutting-edge experiential education that enhances critical thinking, decision-making, and leadership skills in a highly realistic business environment.
+              </p>
             </div>
           </WobbleCard>
 
-          <WobbleCard containerClassName="bg-gradient-to-br from-indigo-600 to-purple-600 min-h-[280px]">
-            <div className="flex items-start space-x-4">
-              <div className="bg-white/20 p-4 rounded-xl backdrop-blur-sm">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-3">Our Vision</h3>
-                <p className="text-blue-100 leading-relaxed">
-                  To become the leading platform for business simulation education globally, revolutionizing how students learn management skills by providing immersive, technology-driven learning experiences.
-                </p>
-              </div>
+          <WobbleCard containerClassName="bg-gradient-to-br from-indigo-600 to-purple-600">
+            <div className="text-center">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">Our Vision</h3>
+              <p className="text-blue-100 text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+                To become the leading platform for business simulation education globally, revolutionizing how students learn management skills by providing immersive, technology-driven learning experiences.
+              </p>
             </div>
           </WobbleCard>
         </div>
 
         {/* What Makes Us Different */}
         <div>
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">What Makes Us Different</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 sm:mb-10 lg:mb-12">What Makes Us Different</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 icon: (
@@ -252,14 +242,14 @@ const About = () => {
               }
             ].map((item, idx) => (
               <CardContainer key={idx}>
-                <CardBody className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow p-8 border border-blue-100">
-                  <CardItem translateZ={50} className="text-blue-600 mb-4">
+                <CardBody className="bg-white rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-shadow p-4 sm:p-6 lg:p-8 border border-blue-100">
+                  <CardItem translateZ={50} className="text-blue-600 mb-3 sm:mb-4">
                     {item.icon}
                   </CardItem>
-                  <CardItem translateZ={60} className="text-xl font-bold text-gray-800 mb-3">
+                  <CardItem translateZ={60} className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
                     {item.title}
                   </CardItem>
-                  <CardItem translateZ={40} className="text-gray-600 leading-relaxed">
+                  <CardItem translateZ={40} className="text-gray-600 text-sm sm:text-base leading-relaxed">
                     {item.desc}
                   </CardItem>
                 </CardBody>
@@ -270,8 +260,8 @@ const About = () => {
 
         {/* Leadership Team */}
         <div>
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Leadership Team</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 sm:mb-10 lg:mb-12">Our Leadership Team</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 name: "Priyaranjan Kumar",
@@ -292,22 +282,22 @@ const About = () => {
                 linkedin: "https://www.linkedin.com/in/ayushant"
               }
             ].map((person, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-lg p-6 flex flex-col h-[600px]">
-                <div className="flex-shrink-0 mb-6">
-                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-blue-200">
+              <div key={idx} className="bg-white rounded-lg sm:rounded-xl shadow-lg p-4 sm:p-6 flex flex-col h-[500px] sm:h-[550px] lg:h-[600px]">
+                <div className="flex-shrink-0 mb-4 sm:mb-6">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mx-auto rounded-full overflow-hidden border-2 sm:border-4 border-blue-200">
                     <img src={person.img} alt={person.name} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4 text-center flex-shrink-0">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center flex-shrink-0">
                   {person.name}
                 </h3>
-                <div className="flex-1 overflow-y-auto mb-4 pr-2">
-                  <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line text-left">
+                <div className="flex-1 overflow-y-auto mb-3 sm:mb-4 pr-1 sm:pr-2">
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed whitespace-pre-line text-left">
                     {person.desc}
                   </p>
                 </div>
-                <div className="flex-shrink-0 text-center pt-4 border-t border-gray-200">
-                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 text-sm font-medium hover:text-blue-800">
+                <div className="flex-shrink-0 text-center pt-3 sm:pt-4 border-t border-gray-200">
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 text-xs sm:text-sm font-medium hover:text-blue-800">
                     LinkedIn Profile →
                   </a>
                 </div>
@@ -319,18 +309,30 @@ const About = () => {
         {/* CTA Section */}
         <WobbleCard containerClassName="bg-gradient-to-br from-blue-700 to-indigo-800">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
               Ready to Transform Your Learning Experience?
             </h2>
-            <p className="text-blue-100 text-lg mb-8">
+            <p className="text-blue-100 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8">
               Join thousands of students who've enhanced their business acumen through our innovative simulation platform.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+              <button 
+                onClick={() => {
+                  navigate('/simulation');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="bg-white text-blue-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg cursor-pointer"
+              >
                 Start Simulation
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all transform hover:scale-105">
-                Learn More
+              <button 
+                onClick={() => {
+                  navigate('/contact');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold hover:bg-white/10 transition-all transform hover:scale-105 cursor-pointer"
+              >
+                Contact Us
               </button>
             </div>
           </div>
@@ -338,7 +340,7 @@ const About = () => {
       </div>
 
       {/* Footer */}
-      <footer className="text-center py-8 text-sm text-gray-600 border-t border-gray-200 bg-white/50">
+      <footer className="text-center py-6 sm:py-8 text-xs sm:text-sm text-gray-600 border-t border-gray-200 bg-white/50">
         © 2025 atkind. All rights reserved. <br />
         Powered by <a href="https://atkind.com" className="text-blue-600 font-medium hover:text-blue-800">atkind.com</a>
       </footer>

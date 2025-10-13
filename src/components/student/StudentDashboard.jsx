@@ -33,20 +33,22 @@ const StudentDashboard = () => {
       {/* Simulation Lock Modal - Shows if license is invalid */}
       <SimulationLockModal userCollege={userCollege} />
       
-      <div className="p-6">
-        <div className="max-w-4xl mx-auto">
-          {!simulationStarted ? (
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">Area Manager Simulation</h1>
-                <h2 className="text-xl text-gray-600">Area Manager Training Program</h2>
-              </div>
+      {/* Hide everything when quiz is active */}
+      {!showQuiz && (
+        <div className="p-6">
+          <div className="max-w-4xl mx-auto">
+            {!simulationStarted ? (
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="text-center mb-8">
+                  <h1 className="text-3xl font-bold text-gray-900 mb-2">Area Manager Simulation</h1>
+                  <h2 className="text-xl text-gray-600">Area Manager Training Program</h2>
+                </div>
 
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-4">Welcome back,</h3>
-                <p className="text-lg text-gray-800 mb-2">{studentInfo.name}</p>
-                <p className="text-gray-600">{studentInfo.college}</p>
-              </div>
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4">Welcome back,</h3>
+                  <p className="text-lg text-gray-800 mb-2">{studentInfo.name}</p>
+                  <p className="text-gray-600">{studentInfo.college}</p>
+                </div>
 
               <div className="prose max-w-none mb-8">
                 <h3 className="text-2xl font-bold mb-4">Welcome to the Chocolate Company!</h3>
@@ -125,13 +127,15 @@ const StudentDashboard = () => {
                 </div>
               </div>
             </div>
-          )}
-          
-          {showQuiz && (
-            <SimulationQuiz onClose={handleQuizClose} />
-          )}
+            )}
+          </div>
         </div>
-      </div>
+      )}
+      
+      {/* Show quiz in full screen when active */}
+      {showQuiz && (
+        <SimulationQuiz onClose={handleQuizClose} />
+      )}
     </div>
   );
 };

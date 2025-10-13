@@ -40,6 +40,7 @@ const AdminDashboard = ({ activeTab = 'overview' }) => {
   const [newTotalScore, setNewTotalScore] = useState('');
   const [newInstructionScore, setNewInstructionScore] = useState('');
   const [editReason, setEditReason] = useState('');
+  const [instructorScore, setInstructorScore] = useState('');
 
   const validateForm = () => {
     const newErrors = {};
@@ -272,10 +273,6 @@ const AdminDashboard = ({ activeTab = 'overview' }) => {
                 }`}>
                   {isConnected ? 'Live' : 'Offline'}
                 </span>
-              </div>
-              <div className="flex items-center">
-                <span className="text-gray-500">Logged in as</span>
-                <span className="ml-2 font-medium text-gray-900">{user.college}</span>
               </div>
               <button
                 onClick={() => {
@@ -605,6 +602,7 @@ const AdminDashboard = ({ activeTab = 'overview' }) => {
                     setNewTotalScore('');
                     setNewInstructionScore('');
                     setEditReason('');
+                    setInstructorScore('');
                   }}
                   className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
                 >
@@ -614,7 +612,7 @@ const AdminDashboard = ({ activeTab = 'overview' }) => {
 
               {/* Student & Quiz Info */}
               <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
                     <p className="text-sm text-gray-600">Student</p>
                     <p className="font-semibold">{selectedScore.student?.fullName || 'N/A'}</p>
@@ -638,6 +636,29 @@ const AdminDashboard = ({ activeTab = 'overview' }) => {
                       className="mt-2 px-3 py-1 bg-orange-600 text-white text-xs rounded-lg hover:bg-orange-700"
                     >
                       ✏️ Edit Total Score
+                    </button>
+                  </div>
+                  <div className="text-center bg-white rounded-lg p-3 border-2 border-green-300">
+                    <p className="text-sm text-gray-600">Instructor Score</p>
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      value={instructorScore}
+                      onChange={(e) => setInstructorScore(e.target.value)}
+                      placeholder="Enter score"
+                      className="mt-2 w-full px-2 py-1 text-center text-lg font-bold text-green-600 border-2 border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <button
+                      onClick={() => {
+                        if (instructorScore && instructorScore >= 0 && instructorScore <= 100) {
+                          console.log('Instructor score added:', instructorScore);
+                          // UI only - no API call
+                        }
+                      }}
+                      className="mt-2 w-full px-3 py-1 bg-green-600 text-white text-xs rounded-lg hover:bg-green-700 transition-colors"
+                    >
+                      ✓ Add Score
                     </button>
                   </div>
                 </div>

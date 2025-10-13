@@ -6,8 +6,7 @@ const AdminNav = () => {
 
   const navItems = [
     { name: 'Overview', path: '/be/admin/dashboard' },
-    { name: 'Management', path: '/be/admin/management' },
-    { name: 'Student Scores', path: '/be/admin/scores' }
+    { name: 'Management', path: '/be/admin/management' }
   ];
 
   return (
