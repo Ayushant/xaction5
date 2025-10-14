@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { EvervaultCard, Icon } from "../components/ui/evervault-card";
+import Chatbot from "../components/Chatbot/Chatbot";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -199,6 +200,9 @@ const Home = () => {
           </p>
         </div>
       </footer>
+
+      {/* Chatbot */}
+      <Chatbot />
     </div>
   );
 };

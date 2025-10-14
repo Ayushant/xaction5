@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import Chatbot from "../components/Chatbot/Chatbot";
 
 // Utility function for class names
 const cn = (...classes) => classes.filter(Boolean).join(" ");
@@ -222,6 +223,9 @@ const Contact = () => {
         © 2025 atkind. All rights reserved. <br />
         Powered by <a href="https://atkind.com" className="text-blue-600 font-medium hover:text-blue-800">atkind.com</a>
       </footer>
+
+      {/* Chatbot */}
+      <Chatbot />
     </div>
   );
 };
