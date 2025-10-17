@@ -133,9 +133,9 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
             <h1 className="text-6xl font-black text-gray-800 mb-4 tracking-wider">
               MISSION ACCOMPLISHED!
             </h1>
-            <p className="text-2xl text-gray-600">
-              Strategic Simulation Complete
-            </p>
+            <p className="text-3xl text-white">
+  Strategic Simulation Complete
+</p>
           </div>
 
           {/* Score Display */}
@@ -162,9 +162,9 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
           </div>
 
           {/* Statistics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 justify-items-center">
             {/* Your Score */}
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200 w-full max-w-md mx-auto">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 mb-4 inline-block">
                 <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -178,7 +178,7 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
             </div>
 
             {/* Missions Completed */}
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200 w-full max-w-md mx-auto">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-100 to-pink-100 mb-4 inline-block">
                 <svg className="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
@@ -190,20 +190,6 @@ const QuizResults = ({ result, results, onBack, onReturnToDashboard, onRetakeQui
               </div>
               <div className="text-purple-600 font-bold text-xl mb-2">Missions Completed</div>
               <div className="text-gray-600">Strategic decisions executed</div>
-            </div>
-
-            {/* Strategic Excellence */}
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center border-2 border-gray-200">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-green-100 to-blue-100 mb-4 inline-block">
-                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div className="text-5xl font-black text-transparent bg-gradient-to-br from-green-600 to-blue-600 bg-clip-text mb-3">
-                {answers.filter(a => a.instruction).length}
-              </div>
-              <div className="text-green-600 font-bold text-xl mb-2">Instructions Given</div>
-              <div className="text-gray-600">Detailed strategic reasoning</div>
             </div>
           </div>
 

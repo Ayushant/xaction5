@@ -54,9 +54,9 @@ const QuizPreface = ({ quiz, onNext, onBack }) => {
             <h2 className="text-3xl font-bold text-blue-600 mb-4">
               {quiz.title}
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              {quiz.description}
-            </p>
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
+  {quiz.description}
+</p>
           </div>
 
           {/* Course Badge */}
@@ -151,32 +151,24 @@ const QuizPreface = ({ quiz, onNext, onBack }) => {
               </svg>
               <div>
                 <h3 className="text-2xl font-black text-yellow-300 mb-4">MISSION PROTOCOLS</h3>
-                <ul className="space-y-3 text-white/90 text-lg">
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 text-2xl">▸</span>
-                    <span>This mission uses <strong className="text-cyan-300">ranking-based challenges</strong></span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 text-2xl">▸</span>
-                    <span>You must <strong className="text-cyan-300">rank strategic options</strong> from highest to lowest priority</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 text-2xl">▸</span>
-                    <span>Each challenge requires a <strong className="text-cyan-300">written strategic instruction</strong></span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 text-2xl">▸</span>
-                    <span><strong className="text-green-300">NO TIME LIMITS</strong> - Take your time for strategic thinking</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 text-2xl">▸</span>
-                    <span>Scoring based on <strong className="text-cyan-300">ranking accuracy</strong> (0-100%)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 text-2xl">▸</span>
-                    <span>Bonus points for <strong className="text-cyan-300">detailed strategic reasoning</strong></span>
-                  </li>
-                </ul>
+                    <ul className="space-y-3 text-white/90 text-lg">
+                      <li className="flex items-start">
+                        <span className="text-cyan-400 mr-3 text-2xl">▸</span>
+                        <span><strong className="text-cyan-300">Back Navigation</strong> through browser not allowed. Your score may be reset to <strong className="text-cyan-300">Zero</strong>.</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-cyan-400 mr-3 text-2xl">▸</span>
+                        <span>To choose your <strong className="text-cyan-300">Decision</strong>, you need to <strong className="text-cyan-300">drag and drop</strong> options, and the top-most being your most prominent choice for the Challenge.</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-cyan-400 mr-3 text-2xl">▸</span>
+                        <span>After every decision, you must fill in the <strong className="text-cyan-300">reasoning block</strong> in <strong className="text-cyan-300">100 words</strong>, which is compulsory.</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-cyan-400 mr-3 text-2xl">▸</span>
+                        <span>There is <strong className="text-green-300">no time limit</strong> for any Decision until the time instructed by your Institute.</span>
+                      </li>
+                    </ul>
               </div>
             </div>
           </div>

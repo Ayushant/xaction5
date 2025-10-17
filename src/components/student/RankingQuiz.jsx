@@ -174,18 +174,6 @@ const RankingQuiz = ({ quiz, onComplete, onBack }) => {
     }
   };
 
-  const handlePrevious = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-      
-      const prevAnswer = allAnswers[currentQuestionIndex - 1];
-      if (prevAnswer) {
-        setInstruction(prevAnswer.instruction);
-        setShowStrategicOptions(true);
-      }
-    }
-  };
-
   const handleSubmit = async (answers) => {
     setIsSubmitting(true);
     
@@ -349,17 +337,17 @@ const RankingQuiz = ({ quiz, onComplete, onBack }) => {
                   <h3 className="text-2xl font-black text-purple-700">Constraints</h3>
                   <p className="text-gray-600">Critical information points (read-only)</p>
                 </div>
-                <div className="px-4 py-2 bg-purple-100 rounded-full border border-purple-300">
-                  <span className="text-purple-700 font-bold text-sm">IMPORTANT</span>
+                <div className="px-5 py-2 bg-purple-100 rounded-full border border-purple-300">
+                  <span className="text-purple-700 font-black text-base">IMPORTANT</span>
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {currentQuestion.points.map((point, index) => (
-                  <div key={index} className="bg-gray-50/80 backdrop-blur-sm border border-purple-200 rounded-lg p-4 flex items-start gap-4 hover:border-purple-300 transition-all">
-                    <div className="w-10 h-10 bg-purple-500 text-white rounded-lg flex items-center justify-center font-bold text-base flex-shrink-0">
+                  <div key={index} className="bg-gray-50/80 backdrop-blur-sm border border-purple-200 rounded-lg p-6 flex items-start gap-5 hover:border-purple-300 transition-all">
+                    <div className="w-14 h-14 bg-purple-500 text-white rounded-lg flex items-center justify-center font-black text-xl flex-shrink-0">
                       {index + 1}
                     </div>
-                    <p className="text-gray-700 leading-relaxed flex-1 text-base">
+                    <p className="text-gray-900 leading-relaxed flex-1 text-xl font-bold">
                       {point.text}
                     </p>
                   </div>
@@ -438,7 +426,7 @@ const RankingQuiz = ({ quiz, onComplete, onBack }) => {
                     </svg>
                     <div>
                       <span className="text-2xl font-black text-yellow-800">
-                        Your Strategic Instruction <span className="text-red-600">*</span>
+                        Your Strategic Reason<span className="text-red-600">*</span>
                       </span>
                       <p className="text-gray-700 text-sm mt-1">
                         Explain your ranking choice (20-100 words required)
@@ -468,19 +456,7 @@ const RankingQuiz = ({ quiz, onComplete, onBack }) => {
               </div>
 
               {/* Navigation Buttons */}
-              <div className={`flex items-center gap-4 ${currentQuestionIndex === 0 ? 'justify-end' : 'justify-between'}`}>
-                {currentQuestionIndex > 0 && (
-                  <button
-                    onClick={handlePrevious}
-                    className="px-8 py-4 rounded-xl font-bold text-lg text-white bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 transition-all border border-white/20 hover:scale-105 flex items-center gap-2"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    Previous
-                  </button>
-                )}
-
+              <div className="flex items-center gap-4 justify-center">
                 <button
                   onClick={handleNext}
                   disabled={isSubmitting}

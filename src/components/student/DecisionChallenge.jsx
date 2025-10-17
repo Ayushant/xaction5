@@ -138,18 +138,18 @@ const DecisionChallenge = ({ quiz, onComplete, onBack }) => {
 
   const handleNext = () => {
     if (!instruction || instruction.trim().length === 0) {
-      alert('⚠️ Please provide your strategic instruction before proceeding');
+      alert('⚠️ Please provide your strategic Reason before proceeding');
       return;
     }
 
     const wordCount = countWords(instruction);
     if (wordCount < 20) {
-      alert(`⚠️ Instruction must be at least 20 words (current: ${wordCount} words)`);
+      alert(`⚠️ Reason must be at least 20 words (current: ${wordCount} words)`);
       return;
     }
 
     if (wordCount > 100) {
-      alert(`⚠️ Instruction must not exceed 100 words (current: ${wordCount} words)`);
+      alert(`⚠️ Reason must not exceed 100 words (current: ${wordCount} words)`);
       return;
     }
 
@@ -173,18 +173,6 @@ const DecisionChallenge = ({ quiz, onComplete, onBack }) => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       handleSubmit(updatedAnswers);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-      
-      const prevAnswer = allAnswers[currentQuestionIndex - 1];
-      if (prevAnswer) {
-        setInstruction(prevAnswer.instruction);
-        setShowStrategicOptions(true);
-      }
     }
   };
 
@@ -534,19 +522,7 @@ const DecisionChallenge = ({ quiz, onComplete, onBack }) => {
               </div>
 
               {/* Navigation Buttons */}
-              <div className={`flex items-center gap-4 ${currentQuestionIndex === 0 ? 'justify-end' : 'justify-between'}`}>
-                {currentQuestionIndex > 0 && (
-                  <button
-                    onClick={handlePrevious}
-                    className="px-8 py-4 rounded-xl font-bold text-lg text-white bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 transition-all border border-white/20 hover:scale-105 flex items-center gap-2"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    Previous
-                  </button>
-                )}
-
+              <div className="flex items-center gap-4 justify-center">
                 <button
                   onClick={handleNext}
                   disabled={isSubmitting}
